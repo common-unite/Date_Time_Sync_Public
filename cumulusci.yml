@@ -1,29 +1,68 @@
-minimum_cumulusci_version: '3.74.0'
+minimum_cumulusci_version: '3.43.0'
 project:
-    name: cUnite_Date_Time_Sync
+    name: FormBuilder
     package:
-        name: Date Time Sync
-        namespace: cUnite
+        name: 'Flow Tool Kit: Form and Table Builder'
+        namespace: FlowToolKit
         api_version: '55.0'
     git:
     source_format: sfdx
 
+
+sources:
+    snowfakery:
+            github: 'https://github.com/SFDO-Tooling/Snowfakery'
+
+flows:
+
+    release_2gp_beta:
+        steps:
+            90:
+                task: github_copy_subtree
+                options:
+                    tag_name: "latest_beta"
+
+
+    release_2gp_production:
+        steps:
+            90:
+                task: github_copy_subtree
+                options:
+                    tag_name: "latest"
+
 tasks:
-    robot:
-        options:
-            suites: robot/cUnite_Date_Time_Sync/tests
-            options:
-                outputdir: robot/cUnite_Date_Time_Sync/results
 
-    robot_testdoc:
+    create_package_version:
         options:
-            path: robot/cUnite_Date_Time_Sync/tests
-            output: robot/cUnite_Date_Time_Sync/doc/cUnite_Date_Time_Sync_tests.html
-
-    run_tests:
-        options:
-            required_org_code_coverage_percent: 75
+            post_install_script: InstallScript
 
     github_copy_subtree:
         options:
-            repo_url: "https://github.com/bobbysfdev/Date_Time_Sync_Public"
+            repo_url: "https://github.com/common-unite/Flow_Tool_Kit_Public"
+            branch: "main"
+            create_release: true
+            release_body: true
+            include: [ "cumulusci.yml","sfdx-project.json","orgs/" ]
+
+    robot:
+        options:
+            suites: robot/FormBuilder/tests
+            options:
+                outputdir: robot/FormBuilder/results
+
+    robot_testdoc:
+        options:
+            path: robot/FormBuilder/tests
+            output: robot/FormBuilder/doc/FormBuilder_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 90
+
+
+orgs:
+    scratch:
+        build:
+            config_file: orgs/build.json
+        packaging:
+            config_file: orgs/packaging.json

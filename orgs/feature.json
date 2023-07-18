@@ -1,7 +1,11 @@
 {
-  "orgName": "Date Time Sync - Feature Test Org",
+  "orgName": "Form Builder - Feature Test Org",
   "edition": "Developer",
+  "features": ["enableSetPasswordInApi", "PlatformCache", "ProviderFreePlatformCache"],
   "settings": {
+    "languageSettings": {
+      "enableTranslationWorkbench": true
+    },
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
     },
@@ -17,8 +21,19 @@
         "forceRelogin": false
       }
     },
-    "languageSettings": {
-      "enableTranslationWorkbench": true
+    "experienceBundleSettings": {
+      "enableExperienceBundleMetadata": true
+    },
+    "flowSettings": {
+      "enableFlowPauseEnabled": true
+    }
+  },
+  "objectSettings" : {
+    "contact" :  {
+      "defaultRecordType" :  "default"
+    },
+    "account" :  {
+      "defaultRecordType" :  "default"
     }
   }
 }

@@ -1,7 +1,6 @@
 {
-  "orgName": "Form Builder - Dev Org",
-  "adminEmail": "bobby@common-unite.com",
-  "edition": "Developer",
+  "orgName": "Form Builder - Build Test Org",
+  "edition": "Enterprise",
   "features": ["enableSetPasswordInApi", "PlatformCache", "ProviderFreePlatformCache"],
   "settings": {
     "flowSettings": {
