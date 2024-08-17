@@ -1,8 +1,11 @@
 {
-  "orgName": "Form Builder - Beta Test Org",
-  "edition": "Developer",
+  "orgName": "Form Builder - Packaging Test Org",
+  "edition": "Enterprise",
   "features": ["enableSetPasswordInApi", "PlatformCache", "ProviderFreePlatformCache"],
   "settings": {
+    "languageSettings": {
+      "enableTranslationWorkbench": true
+    },
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
     },
